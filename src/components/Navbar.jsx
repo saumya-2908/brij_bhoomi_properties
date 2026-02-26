@@ -9,6 +9,8 @@ export default function Navbar() {
   const [openMore, setOpenMore] = useState(false);
   const [openBlog, setOpenBlog] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileBlogOpen, setMobileBlogOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
   const moreRef = useRef();
   const blogRef = useRef();
@@ -80,7 +82,6 @@ export default function Navbar() {
       className={`fixed w-full z-50 transition-all duration-300 ${navbarBg}`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-6">
-
         {/* Logo */}
         <Link to="/">
           <img src={logo} alt="Logo" className="w-20 cursor-pointer" />
@@ -88,12 +89,46 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex gap-8 text-lg font-medium items-center">
-
-          <li><Link to="/" className={`${textColor} hover:text-brand-gold transition`}>Home</Link></li>
-          <li><Link to="/about" className={`${textColor} hover:text-brand-gold transition`}>About Us</Link></li>
-          <li><Link to="/services" className={`${textColor} hover:text-brand-gold transition`}>Services</Link></li>
-          <li><Link to="/projects" className={`${textColor} hover:text-brand-gold transition`}>Projects</Link></li>
-          <li><Link to="/properties" className={`${textColor} hover:text-brand-gold transition`}>Properties</Link></li>
+          <li>
+            <Link
+              to="/"
+              className={`${textColor} hover:text-brand-gold transition`}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/about"
+              className={`${textColor} hover:text-brand-gold transition`}
+            >
+              About Us
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/services"
+              className={`${textColor} hover:text-brand-gold transition`}
+            >
+              Services
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/projects"
+              className={`${textColor} hover:text-brand-gold transition`}
+            >
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/properties"
+              className={`${textColor} hover:text-brand-gold transition`}
+            >
+              Properties
+            </Link>
+          </li>
 
           {/* Blog Dropdown */}
           <li className="relative" ref={blogRef}>
@@ -106,8 +141,20 @@ export default function Navbar() {
 
             {openBlog && (
               <div className="absolute right-0 mt-4 w-52 bg-white dark:bg-brand-darkCard rounded-xl shadow-lg py-3">
-                <Link to="/blog/real-estate" onClick={() => setOpenBlog(false)} className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Real Estate</Link>
-                <Link to="/blog/vrindavan" onClick={() => setOpenBlog(false)} className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Vrindavan</Link>
+                <Link
+                  to="/blog/real-estate"
+                  onClick={() => setOpenBlog(false)}
+                  className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Real Estate
+                </Link>
+                <Link
+                  to="/blog/vrindavan"
+                  onClick={() => setOpenBlog(false)}
+                  className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Vrindavan
+                </Link>
               </div>
             )}
           </li>
@@ -123,12 +170,23 @@ export default function Navbar() {
 
             {openMore && (
               <div className="absolute right-0 mt-4 w-52 bg-white dark:bg-brand-darkCard rounded-xl shadow-lg py-3">
-                <Link to="/privacy-policy" onClick={() => setOpenMore(false)} className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Privacy Policy</Link>
-                <Link to="/contact" onClick={() => setOpenMore(false)} className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700">Contact Us</Link>
+                <Link
+                  to="/privacy-policy"
+                  onClick={() => setOpenMore(false)}
+                  className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setOpenMore(false)}
+                  className="block px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
+                >
+                  Contact Us
+                </Link>
               </div>
             )}
           </li>
-
         </ul>
 
         {/* Mobile Hamburger */}
@@ -146,20 +204,102 @@ export default function Navbar() {
         >
           {dark ? "☀" : "🌙"}
         </button>
-
       </div>
 
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white dark:bg-brand-darkBg px-6 py-6 space-y-4 shadow-lg">
-          <Link to="/" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Home</Link>
-          <Link to="/about" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">About Us</Link>
-          <Link to="/services" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Services</Link>
-          <Link to="/projects" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Projects</Link>
-          <Link to="/properties" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Properties</Link>
-          <Link to="/blog" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Blog</Link>
-          <Link to="/privacy-policy" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Privacy Policy</Link>
-          <Link to="/contact" onClick={() => setMobileOpen(false)} className="block text-gray-800 dark:text-white hover:text-brand-gold">Contact Us</Link>
+          <Link
+            to="/"
+            onClick={() => setMobileOpen(false)}
+            className="block text-gray-800 dark:text-white hover:text-brand-gold"
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            onClick={() => setMobileOpen(false)}
+            className="block text-gray-800 dark:text-white hover:text-brand-gold"
+          >
+            About Us
+          </Link>
+          <Link
+            to="/services"
+            onClick={() => setMobileOpen(false)}
+            className="block text-gray-800 dark:text-white hover:text-brand-gold"
+          >
+            Services
+          </Link>
+          <Link
+            to="/projects"
+            onClick={() => setMobileOpen(false)}
+            className="block text-gray-800 dark:text-white hover:text-brand-gold"
+          >
+            Projects
+          </Link>
+          <Link
+            to="/properties"
+            onClick={() => setMobileOpen(false)}
+            className="block text-gray-800 dark:text-white hover:text-brand-gold"
+          >
+            Properties
+          </Link>
+
+          {/* Mobile Blog Dropdown */}
+          <div>
+            <button
+              onClick={() => setMobileBlogOpen(!mobileBlogOpen)}
+              className="w-full text-left flex justify-between items-center text-gray-800 dark:text-white hover:text-brand-gold"
+            >
+              Blog <span>{mobileBlogOpen ? "▴" : "▾"}</span>
+            </button>
+            {mobileBlogOpen && (
+              <div className="pl-4 mt-2 space-y-2 border-l-2 border-brand-gold/30">
+                <Link
+                  to="/blog/real-estate"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 dark:text-gray-400 hover:text-brand-gold"
+                >
+                  Real Estate
+                </Link>
+                <Link
+                  to="/blog/vrindavan"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 dark:text-gray-400 hover:text-brand-gold"
+                >
+                  Vrindavan
+                </Link>
+              </div>
+            )}
+          </div>
+
+          {/* Mobile More Dropdown */}
+          <div>
+            <button
+              onClick={() => setMobileMoreOpen(!mobileMoreOpen)}
+              className="w-full text-left flex justify-between items-center text-gray-800 dark:text-white hover:text-brand-gold"
+            >
+              More <span>{mobileMoreOpen ? "▴" : "▾"}</span>
+            </button>
+            {mobileMoreOpen && (
+              <div className="pl-4 mt-2 space-y-2 border-l-2 border-brand-gold/30">
+                <Link
+                  to="/privacy-policy"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 dark:text-gray-400 hover:text-brand-gold"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  to="/contact"
+                  onClick={() => setMobileOpen(false)}
+                  className="block text-gray-600 dark:text-gray-400 hover:text-brand-gold"
+                >
+                  Contact Us
+                </Link>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </motion.nav>
