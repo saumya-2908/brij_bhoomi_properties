@@ -23,6 +23,18 @@ export default function Home() {
       <NearbyPlaces/>
       <LatestPosts/>
       <Footer/>
+
+    <a
+      href="https://wa.me/918979248799?text=Hi%20I%20want%20details%20about%20properties%20in%20Vrindavan"
+      target="_blank"
+     rel="noopener noreferrer"
+     className="whatsapp-float"
+    >
+     <img
+       src="https://cdn-icons-png.flaticon.com/512/733/733585.png"
+       alt="WhatsApp"
+    />
+  </a>
       
     </>
   );
